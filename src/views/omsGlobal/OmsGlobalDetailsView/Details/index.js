@@ -31,36 +31,36 @@ const Details = ({ customer, className, ...rest }) => {
   const [isMailOpen, setMailOpen] = useState(false);
 
   useEffect(() => {
-    getCommentsByOmsGlobal(route.id);
-    clearState();
+    console.log(customer);
+    // getCommentsByOmsGlobal(route.id);
+    // clearState();
     // eslint-disable-next-line
-  }, []);
+  }, [customer]);
 
   return (
     <Grid
       className={clsx(classes.root, className)}
       container
       spacing={3}
-      {...rest}
     >
       <Grid item lg={4} md={4} xl={4} xs={12}>
         <CustomerInfo customer={customer} />
       </Grid>
       <Grid item lg={5} md={5} xl={5} xs={12}>
-        <PostAdd style={{ marginBottom: '1em' }} type={'global'}/>
+        <PostAdd style={{ marginBottom: '1em' }} type={'global'} />
         <Reviews reviews={comments} />
       </Grid>
 
       <Grid item lg={3} md={3} xl={3} xs={12}>
         <StatusLead lead={route.id} style={{ marginBottom: '1em' }} />
 
-        <SendEmail setMailOpen={setMailOpen} style={{ marginBottom: '1em' }} /> 
+        <SendEmail setMailOpen={setMailOpen} style={{ marginBottom: '1em' }} />
 
         <MakeCall
           user={user}
           customer={customer}
           style={{ marginBottom: '1em' }}
-        />
+        /> 
         {/* 
           <SendWsp
             user={user}
@@ -72,9 +72,8 @@ const Details = ({ customer, className, ...rest }) => {
           isMailOpen={isMailOpen}
           setMailOpen={setMailOpen}
           style={{ marginBottom: '1em' }}
-          type='global'
+          type="global"
         />
-    
       </Grid>
     </Grid>
   );

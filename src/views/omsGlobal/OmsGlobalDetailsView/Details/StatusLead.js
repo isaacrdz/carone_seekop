@@ -68,7 +68,7 @@ import {
           }) => {
             try {
               await updateOmsGlobalStatus(values);
-              await getOmsGlobal(values.id)
+              // await getOmsGlobal(values.id);
               resetForm();
               setStatus({ success: true });
               setSubmitting(false);
